@@ -42,7 +42,7 @@ const deleteDomo = async (req, res) => {
 const getDomos = async (req, res) => {
   try {
     const query = { owner: req.session.account._id };
-    const docs = await Domo.find(query).select('name age').lean().exec();
+    const docs = await Domo.find(query).select('name age level').lean().exec();
     return res.json({ domos: docs });
   } catch (err) {
     console.log(err);
